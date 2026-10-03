@@ -67,7 +67,7 @@ unreachable.
 | `npm run lint` | ESLint |
 | `npm run test` | Vitest unit tests |
 | `npm run build` | Production build |
-| `npm run test:browser` | Playwright journey, desktop and mobile |
+| `npm run test:browser` | Playwright journey on desktop, plus layout, navigation, validation and focus checks on mobile |
 | `npm run db:migrate` | Apply migrations explicitly (they also run on cold start) |
 | `npm run verify:live` | Full HTTP proof against a deployment (`PATCHBAY_BASE_URL=…`) |
 

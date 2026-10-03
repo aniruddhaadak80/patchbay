@@ -21,8 +21,16 @@ export default defineConfig({
     video: "off",
   },
   projects: [
+    // The full mutating journey runs on desktop, where every control is reachable
+    // without a viewport-sized scroll.
     { name: "desktop", use: { ...devices["Desktop Chrome"], viewport: { width: 1440, height: 900 } } },
-    { name: "mobile", use: { ...devices["Pixel 7"] } },
+    // Mobile covers layout, navigation, live-data honesty, validation, and
+    // keyboard focus. The tests below are non-mutating by design.
+    {
+      name: "mobile",
+      use: { ...devices["Pixel 7"] },
+      grep: /repository link|catalog labels|vault rejects|skip link/,
+    },
   ],
   // Readiness is a static asset: it answers without touching the database, so it
   // does not race the embedded adapter's slow first query. globalSetup then

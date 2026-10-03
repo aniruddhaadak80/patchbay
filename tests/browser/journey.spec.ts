@@ -95,6 +95,7 @@ test.describe("Patchbay primary journey", () => {
     // view explicitly rather than relying on Playwright's scroll heuristics.
     const sendCall = page.getByRole("button", { name: "Send call" });
     await page.getByLabel("Method").selectOption("tools/list");
+    await expect(sendCall).toBeEnabled();
     await sendCall.scrollIntoViewIfNeeded();
     await sendCall.click();
     await expect(rpcResponse).toContainText("verify_integrity", { timeout: 20_000 });
@@ -102,11 +103,13 @@ test.describe("Patchbay primary journey", () => {
     await page.getByLabel("Method").selectOption("tools/call");
     await page.getByLabel("MCP tool").selectOption("compile_policy");
     await page.getByLabel("Target agent").selectOption({ label: `browser-agent-${stamp}` });
+    await expect(sendCall).toBeEnabled();
     await sendCall.scrollIntoViewIfNeeded();
     await sendCall.click();
     await expect(rpcResponse).toContainText("factors", { timeout: 30_000 });
 
     await page.getByLabel("MCP tool").selectOption("upsert_agent");
+    await expect(sendCall).toBeEnabled();
     await sendCall.scrollIntoViewIfNeeded();
     await sendCall.click();
     await expect(rpcResponse).toContainText("revision", { timeout: 30_000 });

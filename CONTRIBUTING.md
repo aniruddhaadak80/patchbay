@@ -26,9 +26,13 @@ npm run build       # production build
 npm run test:browser  # Playwright journey on desktop and mobile
 ```
 
-`npm run verify:live -- --base-url https://<host>` runs the full HTTP proof against
-a deployment: create → read-back → update → compile → MCP mutation → replay →
-delete, plus route, provenance, and repository-link checks.
+`npm run test:browser` runs the full CRUD journey on desktop. The mobile project
+runs the non-mutating checks — layout, navigation, repository CTAs, catalog
+honesty, credential validation, and keyboard focus — because the mutating journey
+needs a viewport-sized scroll to reach controls below the fold.
+
+`PATCHBAY_BASE_URL=https://<host> npm run test:browser` points the suite at a
+running deployment instead of starting a local server.
 
 ## Where things live
 
