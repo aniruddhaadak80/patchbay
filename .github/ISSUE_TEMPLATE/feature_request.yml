@@ -1,0 +1,42 @@
+name: Feature request
+description: Suggest a capability Patchbay does not have yet
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please describe the user problem rather than the implementation. A good
+        request explains who hits the problem, what they do today instead, and what
+        "done" would look like for them.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem are you trying to solve?
+    validations:
+      required: true
+
+  - type: textarea
+    id: today
+    attributes:
+      label: What do you do today instead?
+
+  - type: textarea
+    id: outcome
+    attributes:
+      label: What would the outcome look like?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Where would this live?
+      options:
+        - Web UI
+        - REST API
+        - MCP / agent tools
+        - Export format
+        - Not sure
+    validations:
+      required: true

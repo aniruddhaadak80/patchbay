@@ -1,0 +1,45 @@
+{
+  "name": "patchbay",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Route every agent task to the model that should actually handle it. A BYOK routing patchbay with live pricing, a deterministic compiler, and an append-only seal chain.",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "verify:live": "node scripts/verify-live.mjs",
+    "test:browser": "playwright test"
+  },
+  "dependencies": {
+    "@electric-sql/pglite": "^0.5.8",
+    "@neondatabase/serverless": "^1.1.0",
+    "better-auth": "^1.7.7",
+    "framer-motion": "^12.23.24",
+    "kysely": "^0.29.6",
+    "lucide-react": "^0.549.0",
+    "next": "16.3.8",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "zod": "^4.5.4"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.8",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "vitest": "^3.2.7"
+  },
+  "engines": {
+    "node": ">=20.9.0"
+  }
+}

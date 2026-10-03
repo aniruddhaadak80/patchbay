@@ -1,0 +1,57 @@
+name: Bug report
+description: Something behaves differently from what the docs promise
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. The most useful details are what you expected, what
+        happened, and whether the seal chain stayed clean.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: Include the exact error message and the route or endpoint.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open /catalog
+        2. Patch a model onto the balanced lane
+        3. Reload
+    validations:
+      required: true
+
+  - type: input
+    id: agent-id
+    attributes:
+      label: Agent id (if the seal chain is involved)
+      placeholder: uuid
+
+  - type: dropdown
+    id: adapter
+    attributes:
+      label: Which adapter were you running?
+      options:
+        - Hosted Postgres (DATABASE_URL set)
+        - Embedded PGlite (local)
+        - Not sure
+    validations:
+      required: true
+
+  - type: input
+    id: patchbay-version
+    attributes:
+      label: Patchbay commit or release

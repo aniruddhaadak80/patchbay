@@ -1,0 +1,45 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# next.js
+/.next/
+/out/
+next-env.d.ts
+
+# production
+/build
+
+# local embedded database (never commit someone's routing data)
+/.patchbay
+
+# testing
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/coverage/
+
+# misc
+.DS_Store
+*.pem
+Thumbs.db
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# env files — .env.example is committed, real values never are
+.env
+.env.local
+.env.*.local
+
+# typescript
+*.tsbuildinfo
+
+# editors
+.vscode/*
+!.vscode/extensions.json
+.idea

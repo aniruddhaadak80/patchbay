@@ -1,0 +1,174 @@
+@import "tailwindcss";
+
+/*
+ * Patchbay visual identity: telephone-exchange patch panel.
+ * Graphite rack steel, oxidized brass jacks, ivory silkscreen labels.
+ * Deliberately different from the light editorial and dark-prism systems used
+ * in earlier builds: this is a lit equipment rack, not a page.
+ */
+
+:root {
+  --rack-000: #07080a;
+  --rack-050: #0d1014;
+  --rack-100: #14181e;
+  --rack-150: #1b2128;
+  --rack-200: #232b34;
+  --rack-300: #2f3944;
+  --brass-300: #d9a441;
+  --brass-400: #c08a2e;
+  --brass-500: #9a6b1f;
+  --ivory-100: #f4efe2;
+  --ivory-200: #ded7c6;
+  --ivory-400: #a49b88;
+  --signal-green: #5fd08a;
+  --signal-cyan: #4fc3d9;
+  --signal-amber: #e8a33d;
+  --signal-rose: #e0705f;
+  --signal-violet: #9a8cd8;
+
+  --background: var(--rack-000);
+  --foreground: var(--ivory-100);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-rack-50: var(--rack-050);
+  --color-rack-100: var(--rack-100);
+  --color-rack-150: var(--rack-150);
+  --color-rack-200: var(--rack-200);
+  --color-rack-300: var(--rack-300);
+  --color-rack-400: var(--rack-300);
+  --color-brass-300: var(--brass-300);
+  --color-brass-400: var(--brass-400);
+  --color-brass-500: var(--brass-500);
+  --color-ivory-100: var(--ivory-100);
+  --color-ivory-200: var(--ivory-200);
+  --color-ivory-400: var(--ivory-400);
+  --color-signal-green: var(--signal-green);
+  --color-signal-cyan: var(--signal-cyan);
+  --color-signal-amber: var(--signal-amber);
+  --color-signal-rose: var(--signal-rose);
+  --color-signal-violet: var(--signal-violet);
+  --font-sans: var(--font-chivo);
+  --font-mono: var(--font-mono-jack);
+}
+
+* {
+  border-color: var(--rack-200);
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--rack-000);
+  color: var(--ivory-100);
+  font-family: var(--font-chivo), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  /* Rack perforation: a faint vertical weave so flat panels read as metal. */
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.014) 0px,
+      rgba(255, 255, 255, 0.014) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+}
+
+/* Focus is a brass ring, visible on every interactive element. */
+:focus-visible {
+  outline: 2px solid var(--brass-300);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Panel: the physical unit that groups a patch bay region. */
+.panel {
+  background: linear-gradient(180deg, var(--rack-150) 0%, var(--rack-100) 100%);
+  border: 1px solid var(--rack-200);
+  border-radius: 3px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.045),
+    0 10px 24px -18px rgba(0, 0, 0, 0.9);
+  /* The header is sticky, so anything scrolled to must clear it. */
+  scroll-margin-top: 5.5rem;
+}
+
+.panel-raised {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.5),
+    0 16px 34px -22px rgba(0, 0, 0, 0.95);
+}
+
+/* Silkscreen label: the stencil text printed above a jack on real equipment. */
+.silkscreen {
+  font-family: var(--font-mono-jack), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ivory-400);
+}
+
+/* Jack socket: the recessed hole a cord plugs into. */
+.jack {
+  border-radius: 999px;
+  border: 1px solid var(--rack-300);
+  background: radial-gradient(circle at 50% 35%, #0a0c0f 0%, #050607 70%);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.95);
+}
+
+.jack-filled {
+  border-color: var(--brass-400);
+  background: radial-gradient(circle at 50% 35%, #3a2c12 0%, #120d05 72%);
+}
+
+.jack-active {
+  border-color: var(--brass-300);
+  box-shadow:
+    inset 0 1px 2px rgba(0, 0, 0, 0.9),
+    0 0 0 3px rgba(217, 164, 65, 0.16);
+}
+
+/* Patch cord: the SVG path stroke that links a catalog jack to a lane jack. */
+.cord {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.cord-brass {
+  stroke: var(--brass-300);
+}
+
+.cord-idle {
+  stroke: var(--rack-300);
+}
+
+.slot {
+  transition: background-color 140ms ease, border-color 140ms ease, transform 140ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Engraved headings used for equipment groups. */
+.engraved {
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.8);
+}
+
+::selection {
+  background: rgba(217, 164, 65, 0.28);
+  color: var(--ivory-100);
+}

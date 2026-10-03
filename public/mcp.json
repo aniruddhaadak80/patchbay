@@ -1,0 +1,38 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-07-09/server.schema.json",
+  "name": "io.github.aniruddhaadak80/patchbay",
+  "description": "Patchbay agent routing patchbay: read live model pricing, compile deterministic routing policies, and patch tier lanes over an append-only SHA-384 seal chain.",
+  "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/aniruddhaadak80/patchbay",
+    "source": "github"
+  },
+  "websiteUrl": "https://patchbay.vercel.app",
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "patchbay",
+      "version": "1.0.0",
+      "transport": {
+        "type": "streamable-http",
+        "url": "https://patchbay.vercel.app/api/mcp"
+      },
+      "runtimeHint": "nodejs",
+      "environmentVariables": [
+        {
+          "name": "AUTH_SECRET",
+          "description": "Session signing secret. Optional: a visitor may use Patchbay anonymously under a signed scope cookie.",
+          "isRequired": false,
+          "isSecret": true
+        }
+      ]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://patchbay.vercel.app/api/mcp"
+    }
+  ]
+}
