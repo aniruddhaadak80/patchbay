@@ -7,7 +7,7 @@
     "url": "https://github.com/aniruddhaadak80/patchbay",
     "source": "github"
   },
-  "websiteUrl": "https://patchbay.vercel.app",
+  "websiteUrl": "https://patchbay-zeta.vercel.app",
   "packages": [
     {
       "registryType": "npm",
@@ -16,7 +16,7 @@
       "version": "1.0.0",
       "transport": {
         "type": "streamable-http",
-        "url": "https://patchbay.vercel.app/api/mcp"
+        "url": "https://patchbay-zeta.vercel.app/api/mcp"
       },
       "runtimeHint": "nodejs",
       "environmentVariables": [
@@ -32,7 +32,7 @@
   "remotes": [
     {
       "type": "streamable-http",
-      "url": "https://patchbay.vercel.app/api/mcp"
+      "url": "https://patchbay-zeta.vercel.app/api/mcp"
     }
   ]
 }

@@ -9,7 +9,7 @@ export const site = {
   tagline: "Route every agent task to the model that should actually handle it",
   description:
     "Patchbay is a self-hosted agent routing patchbay. Import live model prices from OpenRouter and models.dev, patch models onto tier lanes, and compile a deterministic, sealed routing manifest you can export and own.",
-  liveUrl: "https://patchbay.vercel.app",
+  liveUrl: "https://patchbay-zeta.vercel.app",
   repoUrl: "https://github.com/aniruddhaadak80/patchbay",
   license: "MIT",
   nav: [

@@ -4,7 +4,7 @@
 
 ### Route every agent task to the model that should actually handle it.
 
-[![Live app](https://img.shields.io/badge/live-patchbay.vercel.app-9a6b1f)](https://patchbay.vercel.app)
+[![Live app](https://img.shields.io/badge/live-patchbay.vercel.app-9a6b1f)](https://patchbay-zeta.vercel.app)
 [![License: MIT](https://img.shields.io/badge/license-MIT-c08a2e.svg)](LICENSE)
 [![Next.js 16](https://img.shields.io/badge/Next.js-16-2f3944)](https://nextjs.org)
 [![TypeScript strict](https://img.shields.io/badge/TypeScript-strict-2f3944)](https://www.typescriptlang.org)
@@ -12,7 +12,7 @@
 [![Live feeds](https://img.shields.io/badge/feeds-OpenRouter%20%2B%20models.dev-22d3ee)](https://openrouter.ai/api/v1/models)
 [![MCP JSON-RPC](https://img.shields.io/badge/agent%20interface-MCP--style%20JSON--RPC%202.0-34d399)](public/mcp.json)
 
-**[Live App](https://patchbay.vercel.app)** · **[Source](https://github.com/aniruddhaadak80/patchbay)** · **[API](https://patchbay.vercel.app/api/health)** · **[Agent Tools](https://patchbay.vercel.app/agent)** · **[Issues](https://github.com/aniruddhaadak80/patchbay/issues)**
+**[Live App](https://patchbay-zeta.vercel.app)** · **[Source](https://github.com/aniruddhaadak80/patchbay)** · **[API](https://patchbay-zeta.vercel.app/api/health)** · **[Agent Tools](https://patchbay-zeta.vercel.app/agent)** · **[Issues](https://github.com/aniruddhaadak80/patchbay/issues)**
 
 </div>
 
@@ -320,7 +320,7 @@ The response never contains the key. It returns `keyValueReturned: false`.
   "mcpServers": {
     "patchbay": {
       "type": "http",
-      "url": "https://patchbay.vercel.app/api/mcp"
+      "url": "https://patchbay-zeta.vercel.app/api/mcp"
     }
   }
 }
@@ -340,7 +340,7 @@ The response never contains the key. It returns `keyValueReturned: false`.
 | `export_agent` | read | The portable routing manifest |
 
 ```bash
-curl -s -X POST https://patchbay.vercel.app/api/mcp \
+curl -s -X POST https://patchbay-zeta.vercel.app/api/mcp \
   -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call",
        "params":{"name":"list_models","arguments":{"limit":3}}}' | jq '.result.structuredContent.models'
